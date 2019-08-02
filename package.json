@@ -2,13 +2,17 @@
   "name": "demo_deploy",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tanhung178.github.io/demo_deploy",
   "dependencies": {
     "gh-pages": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "yarn": "^1.17.3"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

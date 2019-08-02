@@ -23,9 +23,33 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
+
+To publish it at https://myusername.github.io/my-app, run:
+### `npm install --save gh-pages`
+
+Alternatively you may use yarn:
+### `yarn add gh-pages`
+
+Add the following scripts in your `package.json`:
+```
+"scripts": {
++   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+```
+The predeploy script will run automatically before deploy is run.
+Then run:
+### `npm run deploy`
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+###Troubleshooting
+When deploy React app with gh-pages but got this error message : The “file” argument must be of type string. Received type undefined
+
+Seems like a bug in gh-pages 2.1. It can be solved by downgrading gh-pages to version 2.0: `yarn add gh-pages@2.0 -D` or `npm install gh-pages@2.0 --save`.
+So that when install gh-pages it should be installed version 2.0 by `npm install --save gh-pages@2.0`
 
 ### `npm run eject`
 
